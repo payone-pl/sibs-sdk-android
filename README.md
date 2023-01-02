@@ -191,7 +191,7 @@ It is possible to get the detailed transaction status data and compare the resul
 <br/>
 
 ## 4. Errors handling
-The Sibs SDK can return errors if the transaction couldn't be fulfilled. Errors are represented by `sealed class` subclasses:
+The Sibs SDK can return errors if an operation couldn't be fulfilled.
 
 #### Transaction errors:
 Defined as subclasses of the `SibsSdkError` sealed class\
