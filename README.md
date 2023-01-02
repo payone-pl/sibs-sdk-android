@@ -203,4 +203,4 @@ Defined as subclasses of the `SibsSdkError` sealed class\
 #### Payment status check errors:
 Defined as subclasses of the `PaymentStatusCheckResponse` sealed class\
 `SDKNotConfigured` - Sibs application or Sibs environment metadata are missing\
-`Error` - Couldn't perform transaction status check. Please refer to the Payment Status documentation [https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox](https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox)\
+`Error` - Couldn't perform transaction status check. Please refer to the Payment Status documentation [https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox](https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox)
