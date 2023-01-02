@@ -6,12 +6,10 @@
 - add dependency of the SDK:
 ```gradle
 dependencies {
-	...
-
     implementation "pl.payone:android-sdk-sibs-paywall:$sibs_paywall_ver"
-    ...
 }
 ```
+
 
 #### Specity the repository for Sibs SDK dependency
 
@@ -45,12 +43,12 @@ dependencyResolutionManagement {
 
 #### AndroidManifest definitions
 
-### Add internet permission
+a) Add internet permission
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-### Add TransactionActivity definition
+b) Add TransactionActivity definition
 
 TransactionActivity extends on the `AppCompatActivity`. Therefore `Theme.AppCompat.*` styles should be used.
 Using `Theme.AppCompat.*.NoActionBar` family styles will hide the ActionBar
@@ -58,8 +56,8 @@ Using `Theme.AppCompat.*.NoActionBar` family styles will hide the ActionBar
 By default when the WebView used internally by SDK gets reloaded on every activity recreation (f.eks. rotation change) 
 It is recommended to block this behavior by adding the following parameter to the activity definition
 
-Sibs environment configurations are passed as metadata. Please contact the Sibs for this data.
 
+Sibs environment configurations are provided by Sibs and passed as metadata:
 ```xml
 android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
 ```
