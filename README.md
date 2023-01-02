@@ -143,12 +143,14 @@ Optionally it is possible to append `AddressParams` object to the `TransactionPa
 
 ```
 <br/>
+
 #### Start the payment flow:
 ```
     val sibsSdkIntent = TransactionActivity.getIntent(this, transactionParams)
     sdkActivityLauncher.launch(sibsSdkIntent)
 ```
 <br/>
+
 ## 2. Consume the Sibs SDK result:
 
 Result of the transaction can be obtained from activity result intent:
@@ -173,6 +175,7 @@ Example of successful transaction handling:
     }
 ```
 <br/>
+
 ## 3. Optional transaction status check:
 
 It is possible to get the detailed transaction status data and compare the result with the documentation provided by Sibs
@@ -186,6 +189,7 @@ It is possible to get the detailed transaction status data and compare the resul
     }
 ```
 <br/>
+
 ## 4. Errors handling
 The Sibs SDK can return errors if the transaction couldn't be fulfilled. Errors are represented by `sealed class` subclasses:
 
