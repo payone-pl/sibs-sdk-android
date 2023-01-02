@@ -9,7 +9,7 @@ dependencies {
     implementation "pl.payone:android-sdk-sibs-paywall:$sibs_paywall_ver"
 }
 ```
-
+<br/>
 
 #### Specity the repository for Sibs SDK dependency
 
@@ -40,6 +40,7 @@ dependencyResolutionManagement {
     }
 }
 ```
+<br/>
 
 #### AndroidManifest definitions
 
@@ -83,6 +84,7 @@ Example `TransactionActivity` definition:
         android:value="my_sibs_web_url" />
 </activity>
 ```
+<br/>
 
 ## 2. Starting the Sibs SDK
 
@@ -140,14 +142,13 @@ Optionally it is possible to append `AddressParams` object to the `TransactionPa
             .shippingAddress(shippingAddress)
 
 ```
-
+<br/>
 #### Start the payment flow:
 ```
     val sibsSdkIntent = TransactionActivity.getIntent(this, transactionParams)
     sdkActivityLauncher.launch(sibsSdkIntent)
 ```
-
-
+<br/>
 ## 2. Consume the Sibs SDK result:
 
 Result of the transaction can be obtained from activity result intent:
@@ -171,7 +172,7 @@ Example of successful transaction handling:
         } 
     }
 ```
-
+<br/>
 ## 3. Optional transaction status check:
 
 It is possible to get the detailed transaction status data and compare the result with the documentation provided by Sibs
@@ -184,18 +185,18 @@ It is possible to get the detailed transaction status data and compare the resul
         } 
     }
 ```
-
+<br/>
 ## 4. Errors handling
 The Sibs SDK can return errors if the transaction couldn't be fulfilled. Errors are represented by `sealed class` subclasses:
 
 #### Transaction errors:
-Defined as subclasses of the `SibsSdkError` sealed class
-`WebViewNotAvailable` - WebView is not available on this device or is being updated
-`MissingTransactionParams` - Transaction Params not passed to `TransactionActivity`, please use the TransactionActivity.getIntent for intent creation
-`SDKNotConfigured` - Sibs application or Sibs environment metadata are missing
+Defined as subclasses of the `SibsSdkError` sealed class\
+`WebViewNotAvailable` - WebView is not available on this device or is being updated\
+`MissingTransactionParams` - Transaction Params not passed to `TransactionActivity`, please use the TransactionActivity.getIntent for intent creation\
+`SDKNotConfigured` - Sibs application or Sibs environment metadata are missing\
 `CheckoutError` - Couldn't perform the checkout. Please refer to the Checkout documentation: [https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox](https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox)
 
 #### Payment status check errors:
-Defined as subclasses of the `PaymentStatusCheckResponse` sealed class
-`SDKNotConfigured` - Sibs application or Sibs environment metadata are missing
-`Error` - Couldn't perform transaction status check. Please refer to the Payment Status documentation [https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox](https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox)
+Defined as subclasses of the `PaymentStatusCheckResponse` sealed class\
+`SDKNotConfigured` - Sibs application or Sibs environment metadata are missing\
+`Error` - Couldn't perform transaction status check. Please refer to the Payment Status documentation [https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox](https://developer.sibsapimarket.com/sibs-qly/sibslabs/api/checkout-sandbox)\
