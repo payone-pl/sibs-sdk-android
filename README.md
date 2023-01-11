@@ -58,11 +58,11 @@ By default when the WebView used internally by SDK gets reloaded on every activi
 It is recommended to block this behavior by adding the following parameter to the activity definition
 
 
-Sibs environment configurations are provided by Sibs and passed as metadata:
 ```xml
 android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
 ```
 
+Sibs environment configurations are provided by Sibs and passed as metadata:
 Example `TransactionActivity` definition:
 ```xml
 <activity
