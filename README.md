@@ -63,6 +63,7 @@ android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
 ```
 
 Sibs environment configurations are provided by Sibs and passed as metadata:
+
 Example `TransactionActivity` definition:
 ```xml
 <activity
