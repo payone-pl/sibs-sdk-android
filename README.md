@@ -62,7 +62,7 @@ It is recommended to block this behavior by adding the following parameter to th
 android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
 ```
 
-Sibs environment configurations are provided by Sibs and passed as metadata:
+Sibs environment configurations are provided by Sibs and passed as metadata.
 
 Example `TransactionActivity` definition:
 ```xml
