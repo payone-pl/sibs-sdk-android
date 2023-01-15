@@ -58,16 +58,19 @@ By default when the WebView used internally by SDK gets reloaded on every activi
 It is recommended to block this behavior by adding the following parameter to the activity definition
 
 
-Sibs environment configurations are provided by Sibs and passed as metadata:
 ```xml
 android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
 ```
+
+Sibs environment configurations are provided by Sibs and passed as metadata.
 
 Example `TransactionActivity` definition:
 ```xml
 <activity
     android:name="com.sibs.sdk.TransactionActivity"
-    android:theme="@style/Theme.TransactionActivity" 
+    android:theme="@style/Theme.TransactionActivity"
+    android:screenOrientation="orientation|keyboard|keyboardHidden|screenSize"
+    android:windowSoftInputMode="adjustResize"
     <!--SDK actionBar title-->
     android:label="SDK"> 
     <meta-data
@@ -202,7 +205,7 @@ It is possible to get the detailed transaction status data and compare the resul
 <br/>
 
 ## 4. Errors handling
-The Sibs SDK can return errors if the transaction couldn't be fulfilled. Errors are represented by `sealed class` subclasses:
+The Sibs SDK can return errors if an operation couldn't be fulfilled.
 
 #### Transaction errors:
 Defined as subclasses of the `SibsSdkError` sealed class\
