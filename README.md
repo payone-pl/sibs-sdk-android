@@ -68,7 +68,9 @@ Example `TransactionActivity` definition:
 ```xml
 <activity
     android:name="com.sibs.sdk.TransactionActivity"
-    android:theme="@style/Theme.TransactionActivity" 
+    android:theme="@style/Theme.TransactionActivity"
+    android:screenOrientation="orientation|keyboard|keyboardHidden|screenSize"
+    android:windowSoftInputMode="adjustResize"
     <!--SDK actionBar title-->
     android:label="SDK"> 
     <meta-data
@@ -101,7 +103,15 @@ val transactionParamsBuilder = TransactionParams.Builder()
     .amount(amount) //not negative
     .currency(currency) //3 characters expected
     .paymentMethods(paymentMethods) //not empty
-
+    //optional card tokenization
+    .apply {
+        val cachedTokens: List<Token> = tokensCache.getCachedTokens()
+        val tokenizationParams = TokenizationParams.Builder()
+            .tokenizeCard(true)
+            .tokens(cachedTokens)
+            .build()
+        tokenization(tokenizationParams)
+    }
     //optional parameters
     .merchantTransactionDescription(merchantTransactionDescription)
     .shopUrl(shopUrl)
@@ -171,7 +181,10 @@ Example of successful transaction handling:
 
             if (transferResult.isSuccess) {
                 Log.d(TAG, transferResult.transactionId!!)
-            } 
+            }
+
+            //if card tokenization was requested transferResult will include card token
+            transferResult.token?.let(tokensCache::add)
         } 
     }
 ```
